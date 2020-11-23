@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+/* MAIL GENERATOR STYLE */
+#email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(79,12,78,1) 100%, rgba(230,95,95,1) 100%, rgba(140,29,42,1) 100%);
+    color: #fff;
+}
+
+.mail-list .single-email {
+
+    list-style: none;
+    margin: 10px;
+    border: 3px dotted purple;
+    padding: 10px;
+}
+
+
+
+
+
+

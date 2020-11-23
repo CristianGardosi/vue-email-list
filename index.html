@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- VUEJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>API AJAX AXIOS</title>
+</head>
+
+<body>
+
+
+    <div id="random" class="mb20">
+        <h2>Il tuo numero random preso da API è: {{ randomNumber }} </h2>
+    </div>
+
+    <div id="email" class="mb20">
+        <h1>Boolean fancy purple mail generator</h1>
+        <!-- Creo la lista da popolare con le mie email random generate -->
+        <ul class="mail-list">
+            <!-- Mi occupo delle singole emial (li) looppando nell'array che mi sono creato in Vue e che si appoggia alla API per pescare randomicamente le mail fittizie -->
+            <li v-for="mail in mails" class="single-email">     
+                <span class="mail"> {{mail}} </span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- AXIOS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+    </script>
+    <!-- JS -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
