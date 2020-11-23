@@ -44,19 +44,26 @@ const random = new Vue({
 
 
 
-
+      // ********************************************** \\
+          // !ESERCITAZIONE BOOLEAN MAIL GENERATOR \\
+          // Generare 10 email e stamparle a schermo utilizzando Vue, Axios e l'API endpoint boolean fornito
+     // ************************************************ \\
 
    const email = new Vue({
     el: '#email',
     data: {
+      // Nei data inizializzo un array vuoto da popolare dinamicamente con le mie email generate
         mails: []
     },
     created() {
+      // Nella sezione created looppo dieci volte all'interno della mia API in modo da poter estrarre il numero di mail che mi viene richiesto
         for (i = 0; i < 10; i++) {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            // API richiamata con successo, pusho nel mio array inizializzato nei data Vue il valore corrispondente alla key che mi interessa all'interno dei data che ho consutltato da dev tools (in questo caso response)
             .then( (response) => {    
                     this.mails.push(response.data.response);
             })
+            // API non è richiamata con successo, messaggio di errore
             .catch( (error) => {
                 alert(error);
             })
