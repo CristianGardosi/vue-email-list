@@ -33,7 +33,7 @@ const random = new Vue({
 // !CHIAMATA CHUCK NORRIS QUOTES DA API UTILIZZANDO AXIOS \\
    // ************************************************ \\
   
-   const chuck = new Vue({
+const chuck = new Vue({
     el: "#chuck",
     data: {
       chuckQuote: ''
@@ -55,7 +55,52 @@ const random = new Vue({
           });
       }
     } 
-  });
+});
+
+
+
+    // ********************************************** \\
+    // !UTENTE VS COMPUTER SFIDA AL NUMERO PIU' ALTO \\
+             // ? UTILIZZO DI COMPUTED VUE \\
+  //  Computed permette di creare una funzione che controlla automaticamente i data attribute e risponde di conseguenza alle nostre operazioni
+   // ************************************************ \\
+  
+const utVsComp = new Vue({
+    el: "#random-ut-vs-comp",
+    data: {
+      // Inizializzo le due variabili che popolerò tramite inserimento valori estrapolati da data API
+      computerNumber: 0,
+      playerNumber: 0
+    },
+    // Dentro computed posso definire dei metodi esattamente come faccio nella sezione methods sempre con il return che mi serve per estrapolare i miei valori ottenuti ed utilizzarli fuori dalla funz. La convenienza di usare una computed piuttosto che un methods in questo caso specifico risiede nel fatto che la computed che da lo stesso risultato es. utente vince per due volte di fila non sovrascive tutto il codice come farebbe un methods e ci guadagnamo in termini di prestazioni
+    computed: {
+      gameResults() {
+        if (this.playerNumber === this.computerNumber) {
+          return 'Nessuno! partita conclusa in parità'
+        }
+        return this.playerNumber > this.computerNumber ? 'Player!' : 'Computer!';
+
+      }
+    },
+    created() {
+      // Computer number
+      axios.get('https://flynn.boolean.careers/exercises/api/random/int')
+        .then( (response) => {    
+            this.computerNumber = response.data.response;
+        })
+        .catch( (error) => {
+            alert(error);
+        });
+        // Player number
+        axios.get('https://flynn.boolean.careers/exercises/api/random/int')
+        .then( (response) => {    
+            this.playerNumber = response.data.response;
+        })
+        .catch( (error) => {
+            alert(error);
+        });
+    }
+});
 
 
 
@@ -63,8 +108,7 @@ const random = new Vue({
           // !ESERCITAZIONE BOOLEAN MAIL GENERATOR \\
           // Generare 10 email e stamparle a schermo utilizzando Vue, Axios e l'API endpoint boolean fornito
      // ************************************************ \\
-
-   const email = new Vue({
+const email = new Vue({
     el: '#email',
     data: {
       // Nei data inizializzo un array vuoto da popolare dinamicamente con le mie email generate
@@ -84,5 +128,5 @@ const random = new Vue({
             })
         }
     }
-  }); 
+}); 
   

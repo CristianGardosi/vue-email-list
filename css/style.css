@@ -12,6 +12,10 @@ body {
     margin-bottom: 20px;
 }
 
+.bb {
+    border-bottom: 1px solid #000;
+}
+
 /* MAIL GENERATOR STYLE */
 #email {
     display: flex;
