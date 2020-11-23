@@ -1,5 +1,3 @@
-
-
   // ********************************************** \\
 // !PRIMA SEMPLICE CHIAMATA AD API UTILIAZZANDO AXIOS \\
       // Numero random preso da una API boolean 
@@ -32,15 +30,32 @@ const random = new Vue({
 
 
     // ********************************************** \\
-   // !CHIAMATA CHUCK NORRIS AD API UTILIZZANDO AXIOS \\
+// !CHIAMATA CHUCK NORRIS QUOTES DA API UTILIZZANDO AXIOS \\
    // ************************************************ \\
   
-
-
-
-
-
-
+   const chuck = new Vue({
+    el: "#chuck",
+    data: {
+      chuckQuote: ''
+    },
+    created() {
+        // Dentro created richiamo semplicemente la funzione da me dichiarata nei methods in modo da avere già una quote al caricamento della pagina
+        this.getNewQuote();
+    },
+    // Voglio che al click sul button si refreshi la quote e ne mostri sempre una nuova, creo una funzione con lo stesso codice che avrei scritto nella sezione created() se mi fossi accontentato di avere una nuova quote ad ogni refresh di pagina
+    methods: {
+      getNewQuote() {
+          axios.get('https://api.chucknorris.io/jokes/random')
+          .then( (response) => {    
+          // Inserisco la quote nella variabile che ho inizializzato come stringa vuota nei data, per accedere alla quote entro nei data che consulto tramite dev tools e cerco la key a cui corrisponde la frase, ovvero value
+              this.chuckQuote = response.data.value;
+          })
+          .catch( (error) => {
+              alert(error);
+          });
+      }
+    } 
+  });
 
 
 

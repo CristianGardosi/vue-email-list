@@ -16,13 +16,19 @@
 </head>
 
 <body>
-
-
+    <!-- ESEMPI DI UTILIZZO API / AJAX / AXIOS -->
     <div id="random" class="mb20">
         <h2>Il tuo numero random preso da API è: {{ randomNumber }} </h2>
     </div>
 
-    <div id="email" class="mb20">
+    <div id="chuck" class="mb20">
+        <h2>{{ chuckQuote }}</h2>
+        <button @click="getNewQuote">REFRESH FOR A NEW QUOTE</button>
+    </div>    
+
+              <!-- ESERCITAZIONE POMERIDIANA -->
+    <!-- Generare 10 email e stamparle a schermo utilizzando Vue, Axios e l'API endpoint boolean fornito -->
+    <div id="email">
         <h1>Boolean fancy purple mail generator</h1>
         <!-- Creo la lista da popolare con le mie email random generate -->
         <ul class="mail-list">
